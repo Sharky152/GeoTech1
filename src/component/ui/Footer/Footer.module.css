@@ -1,0 +1,138 @@
+.footer {
+  image-rendering: auto;
+  border-bottom: 30px;
+  border-top: 30px;
+  border-left: 0;
+  border-right: 0;
+  border-style: solid;
+  border-color: rgb(93, 93, 93);
+  background-color: rgb(93, 93, 93);
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center; /* Центрируем всё содержимое */
+  align-items: center;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  position: relative; /* Для абсолютного позиционирования логотипа */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: absolute; /* Абсолютное позиционирование */
+  left: 2rem; /* Отступ слева */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.logo_icon {
+  font-size: 2rem;
+}
+
+.logo_text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0fb400;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.logo_text span {
+  color: black;
+}
+
+.Welcom {
+  display: flex;
+  gap: 1rem; /* Уменьшил gap для лучшего вида */
+  flex-wrap: wrap;
+  justify-content: flex-end; /* Кнопки прижаты к правому краю */
+}
+
+.welcom_button {
+  background-color: rgb(255, 255, 255);
+  border: 2px;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.welcom_button h1 {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.welcom_button:hover {
+  transform: scale(1.1);
+  background-color: rgb(230, 230, 230);
+}
+
+.welcom_button:hover::after {
+  width: 80%;
+}
+
+.welcom_button {
+  cursor: pointer; /* меняет курсор на указатель */
+  padding: 10px 20px; /* добавляет внутренние отступы */
+  margin: 0 5px; /* добавляет отступы между кнопками */
+  border-radius: 4px; /* скругляет углы */
+  font-size: 16px; /* устанавливает размер шрифта */
+  transition: all 0.3s ease; /* плавная анимация */
+}
+
+.welcom_button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: black;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .Welcom {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .welcom_button {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .welcom_button h1 {
+    font-size: 0.9rem;
+  }
+
+  .logo_text {
+    font-size: 1.2rem;
+  }
+}
+
+/* Десктопная адаптивность */
+@media (min-width: 1200px) {
+  .header {
+    padding: 1rem 4rem;
+  }
+
+  .welcom_button {
+    padding: 0.6rem 1.5rem;
+  }
+
+  .welcom_button h1 {
+    font-size: 1.1rem;
+  }
+}

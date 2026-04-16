@@ -1,0 +1,225 @@
+:root {
+  /* Отступы, которые будут масштабироваться */
+  --padding-mobile: 1rem;
+  --padding-tablet: 2rem;
+  --padding-desktop: 4rem;
+  --padding-wide: 8rem;
+  --max-width: 1400px;
+
+  /* Максимальная ширина контента */
+  --max-width: 1400px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Скрывает горизонтальную прокрутку */
+  width: 100%;
+  font-size: clamp(14px, 1.5vw, 18px); /* Адаптивный шрифт */
+}
+
+.main-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--padding-mobile);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.image_header {
+  display: flex;
+  width: 100%;
+  overflow: hidden; /* Обрезает лишнее */
+}
+
+.image_header img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.Welcom {
+  padding-top: 10%;
+  width: min(90%, 800px); /* Адаптивная ширина */
+  max-width: 800px; /* Ограничение максимальной ширины */
+  margin: 0 auto;
+  height: auto;
+}
+
+.Welcom h1 {
+  text-align: center;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+}
+.Welcom h2 {
+  text-align: center;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  line-height: 1.6;
+  font-weight: normal;
+}
+
+.description {
+  padding-top: clamp(1rem, 5vh, 3rem);
+}
+
+.description h1 {
+  text-align: center;
+  font-size: clamp(1.3rem, 3.5vw, 2.5rem);
+}
+
+.description h2 {
+  text-align: left;
+  font-size: clamp(0.9rem, 2vw, 1.3rem);
+  margin-bottom: 0.8rem;
+}
+
+.Projects {
+  width: 100%;
+  text-align: center;
+  margin: clamp(2rem, 5vh, 5rem) 0;
+}
+
+.Heading_one {
+  padding-top: 2%;
+  padding-bottom: 7%;
+  text-align: center; /* Центрирует текстовое содержимое */
+  width: 100%; /* На всю ширину экрана */
+  padding: clamp(1rem, 3vh, 3rem) 0;
+}
+
+.Heading_one h1 {
+  text-align: center;
+  font-size: clamp(1.3rem, 3.5vw, 2.5rem);
+}
+
+.Description_project {
+  width: min(90%, 1000px);
+  margin: 0 auto;
+}
+
+.Description_project h2 {
+  text-align: left;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  line-height: 1.6;
+}
+
+.Zero {
+  margin-bottom: clamp(1.5rem, 4vh, 3rem);
+}
+
+.Connection {
+  padding: clamp(2rem, 8vh, 5rem) 0;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  display: flex;
+  width: 100%;
+  margin-left: 0;
+  height: auto;
+  justify-content: center; /*для центрирования */
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(14px, 1.5vw, 18px);
+}
+
+.Connection_mail {
+  display: flex;
+  flex-direction: column;
+  width: min(80%, 1000px);
+  min-height: clamp(400px, 60vh, 600px);
+  height: auto;
+  background-color: rgb(135, 135, 135);
+  margin: 0 auto; /*Для центрирования */
+  border-radius: 10px;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  gap: clamp(1rem, 3vh, 2rem);
+}
+
+.Connection_mail h2 {
+  text-align: center;
+  color: white;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  margin-bottom: 0.5rem;
+}
+
+.contact_form {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  background-color: rgb(135, 135, 135);
+  border-radius: 10px;
+}
+
+.form_group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form_group label {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.form_group input,
+.form_group textarea {
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: rgba(255, 255, 255, 0.95);
+  transition: all 0.3s ease;
+}
+
+.form_group input:focus,
+.form_group textarea:focus {
+  outline: none;
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.form_group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submit_button {
+  padding: 0.8rem 1.5rem;
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.submit_button:hover {
+  background-color: #1b8002;
+  transform: translateY(-2px);
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+  .contact_form {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .form_group input,
+  .form_group textarea {
+    padding: 0.6rem 0.8rem;
+  }
+}

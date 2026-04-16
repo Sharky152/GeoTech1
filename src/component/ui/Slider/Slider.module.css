@@ -1,0 +1,140 @@
+.sliderContainer {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sliderWrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slidesContainer {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  /* transform: translateX(-100%) - плавный переход между слайдами */
+}
+
+.slide {
+  flex: 0 0 100%;
+  /* Каждый слайд занимает 100% ширины контейнера */
+  position: relative;
+  aspect-ratio: 16 / 9;
+  /* Соотношение сторон 16:9 */
+}
+
+.slideImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Изображение покрывает весь контейнер без искажений */
+}
+
+.caption {
+  font-family: var(--heading);
+  width: 100%;
+  height: 25%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgb(0, 0, 0));
+  color: rgb(255, 255, 255);
+  padding: 20px;
+  text-align: center;
+}
+
+.caption h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
+}
+
+.caption p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.sliderButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.sliderButton:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prevButton {
+  left: 16px;
+}
+
+.nextButton {
+  right: 16px;
+}
+
+.dotsContainer {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+
+.activeDot {
+  background: white;
+  width: 24px;
+  border-radius: 5px;
+}
+
+.autoPlayButton {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.autoPlayButton:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
