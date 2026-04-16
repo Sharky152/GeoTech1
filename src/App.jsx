@@ -143,10 +143,9 @@ function App() {
     },
   ];
   const [formData, setFormData] = useState({
-    name: ``,
-    email: ``,
-    phone: ``,
-    message: ``,
+    name: "",
+    email: "",
+    message: "",
   });
 
   const handleChange = (e) => {
@@ -156,44 +155,40 @@ function App() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Данные формы:", formData);
-    // Здесь можно добавить отправку на сервер
-    alert("Заявка отправлена! Мы свяжемся с вами в ближайшее время.");
 
-    // Очистка формы (опционально)
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    });
+    try {
+      const response = await fetch("https://formsubmit.co/tna@alta-design.ru", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Заявка отправлена! Мы свяжемся с вами.");
+        setFormData({ name: "", email: "", message: "" });
+        // Остаемся на той же странице
+      } else {
+        throw new Error("Ошибка отправки");
+      }
+    } catch (error) {
+      console.error("Ошибка:", error);
+      alert("Произошла ошибка при отправке. Попробуйте позже.");
+    }
   };
-
-  // Затем в форме добавьте атрибуты:
-  <form className={style.contact_form} onSubmit={handleSubmit}>
-    <div className={style.form_group}>
-      <label htmlFor="name">Имя</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        value={formData.name}
-        onChange={handleChange}
-        placeholder="Ваше имя"
-        required
-      />
-    </div>
-    {/* ... остальные поля ... */}
-  </form>;
 
   return (
     <>
       <Header />
       <main>
         <div className={style.image_header}>
-          <img src="src/assets/Project_heder.png"></img>
+          <img src="src\assets\system_ZERO3.jpg" alt="Header background"></img>
         </div>
         <div className={style.Welcom}>
           <div id="about" className={style.About_me}>
@@ -321,42 +316,52 @@ function App() {
             />
           </div>
         </div>
+
         <div id="services" className={style.Connection}>
           <div className={style.Connection_mail}>
-            <div className={style.contact_form}>
+            <form className={style.contact_form} onSubmit={handleSubmit}>
               <div className={style.form_group}>
                 <label htmlFor="name">Ваше имя</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="Джексон"
                   required
                 />
-              </div>{" "}
+              </div>
+
               <div className={style.form_group}>
-                <label htmlFor="email">почта</label>
+                <label htmlFor="email">Почта</label>
                 <input
-                  type="text"
+                  type="email"
                   id="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="ivan@example.com"
                   required
                 />
-              </div>{" "}
+              </div>
+
               <div className={style.form_group}>
                 <label htmlFor="message">Сообщение</label>
                 <textarea
                   id="message"
                   name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Расскажите о вашем проекте..."
                   required
                 />
               </div>
+
               <button type="submit" className={style.submit_button}>
                 Отправить заявку
               </button>
-            </div>
+            </form>
           </div>
         </div>
         <Footer />
