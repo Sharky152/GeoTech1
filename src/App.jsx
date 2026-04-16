@@ -159,7 +159,7 @@ function App() {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://formsubmit.co/tna@alta-design.ru", {
+      const response = await fetch("https://formsubmit.co/Почта", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
